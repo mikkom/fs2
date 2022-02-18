@@ -977,7 +977,7 @@ object Chunk
 
     def apply(i: Int): O = {
       if (i < 0 || i >= size) throw new IndexOutOfBoundsException()
-      if (i == 0) chunks.head(0)
+      if (i < chunks.head.size) chunks.head(i)
       else if (i == size - 1) chunks.last.last.get
       else {
         val (lengths, chunks) = accumulatedLengths
